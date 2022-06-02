@@ -107,15 +107,15 @@ namespace ConApp1
             int emp_id;
             string emp_fname;
             string emp_lname;
-            //int salary;
+            int salary;
             Console.WriteLine("enter ID");
             emp_id = int.Parse(Console.ReadLine());
             Console.Write("Enter new first name:");
             emp_fname = Console.ReadLine();
             Console.Write("Enter new last name :");
             emp_lname = Console.ReadLine();
-            //Console.WriteLine("Enter new salary");
-            //salary = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter new salary");
+            salary = int.Parse(Console.ReadLine());
             //sqlCommand1.CommandType = CommandType.Text;
             SqlCommand sqlCommand = new SqlCommand("update employee set emp_fname=@emp_fname,emp_lname=@emp_lname where emp_id=@emp_id ", sqlConnection);
 
@@ -125,7 +125,7 @@ namespace ConApp1
             sqlCommand.Parameters.AddWithValue("@emp_id", emp_id);
             sqlCommand.Parameters.AddWithValue("@emp_fname", emp_fname);
             sqlCommand.Parameters.AddWithValue("@emp_lname", emp_lname);
-          //  sqlCommand1.Parameters.AddWithValue("@salary", salary);
+            sqlCommand1.Parameters.AddWithValue("@salary", salary);
 
             sqlConnection.Open();
             sqlCommand.ExecuteNonQuery();
